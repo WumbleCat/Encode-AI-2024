@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect to Phantom Wallet</title>
+    <!-- Include WalletConnect library -->
+    <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.5.1/dist/index.umd.min.js"></script>
+</head>
+<body>
+    <h1>Connect to Phantom Wallet</h1>
+    <button id="connectButton">Connect to Phantom Wallet</button>
+
+    <script>
+        // Function to handle connection to Phantom Wallet
+        async function connectToWallet() {
+            try {
+                // Initialize WalletConnect provider
+                const provider = new WalletConnectProvider({
+                    rpc: {
+                        1: 'https://api.mainnet.solana.com', // Mainnet RPC endpoint
+                    },
+                });
+
+                // Enable WalletConnect connection
+                await provider.enable();
+
+                // WalletConnect is connected
+                console.log('WalletConnect connected successfully!');
+                alert('WalletConnect connected successfully!');
+            } catch (error) {
+                // Failed to connect with WalletConnect
+                console.error('Failed to connect with WalletConnect:', error);
+                alert('Failed to connect with WalletConnect. Please try again.');
+            }
+        }
+
+        // Add event listener to the connect button
+        const connectButton = document.getElementById('connectButton');
+        connectButton.addEventListener('click', connectToWallet);
+    </script>
+</body>
+</html>

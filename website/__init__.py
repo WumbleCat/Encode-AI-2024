@@ -1,6 +1,7 @@
 from os import path
 
 from flask import Flask
+from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
@@ -14,9 +15,19 @@ def create_app():
 
     from .views import views
     from .auth import auth
+    from .create import create
 
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(views, url_prefix='/')
+    app.register_blueprint(create, url_prefix='/')
+
+    login_manager = LoginManager()
+    login_manager.login_view = 'Authentication.login'
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(id):
+        return User.query.get(int(id))
 
     from .models import Company, Product, User, Transaction, Wallet
 

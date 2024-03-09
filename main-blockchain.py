@@ -29,7 +29,7 @@ def main():
     payment_status: Literal["pending", "confirmed", "validated"] = None
 
     print("⚡ Connect to cluster")
-    client = Client("https://api.devnet.solana.com")
+    client = Client("https://api.mainnet-beta.solana.com")
 
     '''
     * Simulate a checkout experience
