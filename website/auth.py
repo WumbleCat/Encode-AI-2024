@@ -47,7 +47,8 @@ def signup():
                 new_user = User(email=email, password=hash_gen(
                     password1), ismerchant = True)
             db.session.add(new_user)
-            #wallet = Wallet(user_id = new_user.id,)
+
+            wallet = Wallet(user_id = new_user.id,)
             db.session.commit()
             login_user(new_user, remember=True)
             return redirect(url_for('views.home'))
