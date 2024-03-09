@@ -7,7 +7,7 @@ from solathon import Client, Keypair, PublicKey
 from client_interaction import simulate_wallet_interaction
 
 str_customer_private_key = "qiFNjK8KMULzyJmLQeMik7Qpoj3Ji6at8cwxoBr3DDoBAkM87m9WyQiJAsYMdBmjTHoERYZLJh2NAjWt4yFhNPu"
-str_merchant_public_key = "mvines9iiHiQTysrwkJjGf2gb9Ex9jXJX8ns3qwf2kN"
+str_merchant_public_key = "H5M1Rkg5eC1EYPtDw6vvZiaAXQCNYZwYKLVJ4LapAqA1"
 
 def checkout_params() -> List[Any]:
     label = "Jungle Cats store"
