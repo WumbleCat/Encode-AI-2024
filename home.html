@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encode AI</title>
+    <!-- Bootstrap CSS -->
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Include Navbar -->
+    <iframe src="./navbar.html" style="width: 100%; height: 100px; border: none;"></iframe>
+
+    <div class="container my-5">
+        <div>
+            <h1 class="py-2">Our Project: Blockchain-based Payment System with Fraud Detection and QR Code Payments</h1>
+            <p class="fs-5">Our program utilises blockchain based currency, Solana, to make payments by integrating Phantom Wallet; 
+                a crypto wallet browser extension that manages your cryptocurrency portfolio. Our program also has the added 
+            benefit of providing fraud detection and prevention using Machine Learning with an estimated accuracy of 90%. 
+            With our program, all you need is a click of a button to redirect you to your Crypto account with pre-filled details
+            of the merchant's public key and the amount, ensuring a convenient checkout experience.</p>
+
+            <p>(WORK IN PROGRESS) Currently, a QR code with the pre-filled information can be generated, however, integration
+                with mobile phones is still in development.
+            </p>
+        </div>
+
+        <div>
+            <h1 class="py-2">How We Did It</h1>
+            <h2 class="py-2">Blockchain:</h2>
+            <p class="fs-5">
+                We integrated a reputable crypto browser extension (Phantom Wallet) into our website so that we can automatically send them
+                a request for a certain amount of Solana. The request will contain the amount and the receiver's public key.
+            </p>
+
+            <h2 class="py-2">Machine Learning:</h2>
+            <p class="fs-5">
+                In order to train our model to properly be able to predict fraudulent transactions,
+                we had to create synthetic to train on since publicly available data on websites like Kaggle keep 
+                certain important transaction data private. We simulate four months of transaction that follow a normal distribution
+                using the Faker Library and used the SciPy Library to add randomness. Next, we used the isolation tree model to detect anomolies or outliers. When detected, that transaction is
+                flagged as fraud.
+            </p>
+            <p class="fs-5">
+                 Finally, XGBoost is used to train a model based on the synthetic data to predict the authenticity
+                 of future transactions. So far, we have achieved around 90% accuracy in detecing fraudulent transactions.
+            </p>
+        </div>
+<!-- 
+    simulate four months of transactions (which follows a normal distribution) using Faker library to
+    to add randomness, used numpy and scipy libraries
+
+    use isolation tree model to detect anomolies or outliers
+    when detected, flag as fraud
+
+    use XGBoost to train a model on the synthetic data to predict the authenticity of future transactions
+    achieved around 90% accuracy
+ -->
+
+ <div class="row py-3">
+    <h2>About Us</h2>
+    <!-- Card 1 -->
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Lukasz Krepa</h5>
+                <p class="card-text">University of Bristol<br>BSc Computer Science</p>
+                <a href="https://www.linkedin.com/in/link1" class="btn btn-primary">LinkedIn Profile</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Kometh Tauch</h5>
+                <p class="card-text">University 2<br>Course 2</p>
+                <a href="https://www.linkedin.com/in/link2" class="btn btn-primary">LinkedIn Profile</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Christopher Bintang Soo</h5>
+                <p class="card-text">University 3<br>Course 3</p>
+                <a href="https://www.linkedin.com/in/link3" class="btn btn-primary">LinkedIn Profile</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
