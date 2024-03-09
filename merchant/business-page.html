@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encode AI</title>
+    <!-- Bootstrap CSS -->
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Include Navbar -->
+    <iframe src="../navbar.html" style="width: 100%; height: 100px;"></iframe>
+
+    <!-- Main Content -->
+    <div class="container-fluid ">
+        <h1 class="m-5">Business Page</h1>
+        <div class="row">
+            <div class="col col-md-3 border d-flex flex-column m-5">
+                <div class="my-3">
+                    <h4>Add new product</h4>
+                    <!-- Button to trigger the modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                        Add Product
+                    </button>
+                </div>
+            
+                <!-- Modal for adding a new product -->
+                <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Form inside the modal -->
+                                <form id="addProductForm">
+                                    <div class="mb-3">
+                                        <label for="productName" class="form-label">Product Name</label>
+                                        <input type="text" class="form-control" id="productName" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="productQuantity" class="form-label">Quantity</label>
+                                        <input type="number" class="form-control" id="productQuantity" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="productPrice" class="form-label">Price (Solana)</label>
+                                        <input type="number" step="0.01" class="form-control" id="productPrice" required>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Add Product</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- New container at the bottom of col 1 -->
+                <div class="bottom-container mt-auto pb-3">
+                    <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Name</h5>
+                          <p class="card-text my-1">Public Key: </p>
+                          <h6 class="card-subtitle mb-2 text-body-secondary">PublicKeyHereasdfasfnjawfpuionasdf2awtfygbuhnijl</h6>
+                          <a href="#" class="card-link">Profile</a>
+                          <a href="#" class="card-link">Copy Link</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+    
+            <div class="col col-md-8 border py-2">
+                <h2>Business</h2>
+                <ul class="list-group">
+                    <!-- Product 1 -->
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>Product 1</span>
+                            <div class="d-flex align-items-center">
+                                <span class="badge bg-primary rounded-pill me-2">Quantity: 10 | Price: 50 sol</span>
+                                <!-- Button to trigger Modal for Product 1 -->
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalProduct1">QR</button>
+                            </div>
+                        </div>
+                        <!-- Modal for Product 1 -->
+                        <div class="modal fade" id="modalProduct1" tabindex="-1" aria-labelledby="modalLabelProduct1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalLabelProduct1">Product 1 Details</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">Details about Product 1 here...</div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Product 2 -->
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>Product 2</span>
+                            <div class="d-flex align-items-center">
+                                <span class="badge bg-primary rounded-pill me-2">Quantity: 5 | Price: 30 sol</span>
+                                <!-- Button to trigger Modal for Product 2 -->
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalProduct2">QR</button>
+                            </div>
+                        </div>
+                        <!-- Modal for Product 2 -->
+                        <div class="modal fade" id="modalProduct2" tabindex="-1" aria-labelledby="modalLabelProduct2" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalLabelProduct2">Product 2 Details</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">Details about Product 2 here...</div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Product 3 -->
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>Product 3</span>
+                            <div class="d-flex align-items-center">
+                                <span class="badge bg-primary rounded-pill me-2">Quantity: 15 | Price: 70 sol</span>
+                                <!-- Button to trigger Modal for Product 3 -->
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalProduct3">QR</button>
+                            </div>
+                        </div>
+                        <!-- Modal for Product 3 -->
+                        <div class="modal fade" id="modalProduct3" tabindex="-1" aria-labelledby="modalLabelProduct3" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalLabelProduct3">Product 3 Details</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">Details about Product 3 here...</div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
