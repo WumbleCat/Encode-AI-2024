@@ -75,11 +75,11 @@ def pay(id):
     price = product.cost
     company = Company.query.filter_by(id = product.company_id).first()
     if identify({"Customer ID": "123", "Merchant ID":company.merchant_id,
-                "Merchant Region": "Rural", "Category": "Luxury", "Amount": price}):
+                "Merchant Region": company.region, "Category": product.category, "Amount": price}):
         flash("Payment is fraudulent")
-        return render_template("navbar.html")
+        return render_template("navbar.html", user = current_user)
     else:
-        return render_template("pay.html",price = price, public_key = company.public_key)
+        return render_template("pay.html",price = price, public_key = company.public_key, user = current_user)
 @auth.route('/business')
 @login_required
 def business():

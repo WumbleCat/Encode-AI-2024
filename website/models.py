@@ -7,6 +7,7 @@ class Company(db.Model):
     name = db.Column(db.String(100))
     public_key = db.Column(db.String(216), unique=True)
     merchant_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    region = db.Column(db.String(100))
 
 
 class Product(db.Model):
@@ -14,6 +15,7 @@ class Product(db.Model):
     name = db.Column(db.String(100))
     company_id = db.Column(db.Integer, db.ForeignKey("company.id"))
     cost = db.Column(db.Integer)
+    category = db.Column(db.String(100))
 
 
 

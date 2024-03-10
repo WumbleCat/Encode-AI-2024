@@ -19,8 +19,9 @@ def create_company():
     if request.method == "POST":
         public_key = request.form['public_key']
         name = request.form['name']
+        region = request.form['region']
         user_id = current_user.id
-        new_company = Company(name=name,public_key=public_key,merchant_id = user_id)
+        new_company = Company(name=name,public_key=public_key,merchant_id = user_id, region = region)
         db.session.add(new_company)
         db.session.commit()
         return render_template("navbar.html",user = current_user)
@@ -32,10 +33,11 @@ def create_product():
     if request.method == "POST":
         name = request.form['name']
         price = request.form['price']
+        category = request.form['category']
         # Fetch the current user's company
         company = Company.query.filter_by(merchant_id=current_user.id).first()
         if company:
-            new_product = Product(name=name, cost=price, company_id=company.id)
+            new_product = Product(name=name, cost=price, company_id=company.id,category = category)
             db.session.add(new_product)
             db.session.commit()
             flash('Product created successfully!', category='success')
