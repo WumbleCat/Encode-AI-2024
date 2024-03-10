@@ -5,6 +5,7 @@ This repository contains the project for the Encode AI Hackathon 2024, where we 
 
 ## Getting Started
 ## Technologies
+* **Crypto Wallet (Be sure to have this installed on browser extension):** Phantom Wallet
 * **Frontend:** Bootstrap, Flask
 * **Backend:** Flask
 ### Dependencies
