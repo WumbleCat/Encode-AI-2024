@@ -2,8 +2,8 @@
 %}
     <div class="justify-content-center p-5"> 
         <div class="col-8 mx-auto p-5 rounded bg-white">
-            <h1 class="mb-4">Sign In</h1>
-            <form method="POST">
+            <h1 class="mb-4">Sign Up</h1>
+            <form method = "POST">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
                     <input
@@ -15,19 +15,30 @@
                     />
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
+                    <label for="password1" class="form-label">Password</label>
                     <input
                       type="password"
                       class="form-control"
-                      id="password"
-                      name="password"
+                      id="password1"
+                      name="password1"
                       placeholder="Enter password"
                     />
                 </div>
+                <div class="mb-3">
+                    <label for="password2" class="form-label">Confirm Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password2"
+                      name="password2"
+                      placeholder="Confirm password"
+                    />
+                </div>
                 <div class="text-start"> 
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
                 </div>
             </form>
+
         </div>
     </div>
 {% endblock %}

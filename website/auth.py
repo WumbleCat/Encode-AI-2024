@@ -14,14 +14,18 @@ def login():
         password = request.form.get('password')
 
         user = User.query.filter_by(email=email).first()
+        print('a')
         if user:
             if check_pass(user.password, password):
+                print('b')
                 flash('Logged in successfully!', category='success')
                 login_user(user, remember=True)
-                return redirect(url_for('views.home'))
+                return render_template("navbar.html",user = current_user)
             else:
+                print('c')
                 flash('Incorrect password, try again.', category='error')
         else:
+            print('d')
             flash('Email does not exist.', category='error')
 
     return render_template("login.html", user=current_user)
@@ -49,8 +53,8 @@ def signup():
             db.session.add(wallet)
             db.session.commit()
             login_user(new_user, remember=True)
-            return redirect(url_for('views.home',user = new_user))
-    return render_template("sign_up.html",user = current_user)
+            return render_template("navbar.html",user = current_user)
+    return render_template("signup.html",user = current_user)
 
 @auth.route('/save-transaction', methods=['POST'])
 def save_transaction():
@@ -62,9 +66,20 @@ def save_transaction():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+
 @auth.route('/pay/<int:id>')
 def pay(id):
     product = Product.query.filter_by(id=id).first()
     price = product.cost
     company = Company.query.filter_by(id = product.company_id).first()
     return render_template("pay.html",price = price, public_key = company.public_key)
+@auth.route('/business')
+@login_required
+def business():
+    company = Company.query.filter_by(merchant_id = current_user.id).first()
+    if not company:
+        return render_template("business-page.html",products = None, public_key=None, user=current_user)
+    products = Product.query.filter_by(company_id = company.id).all()
+    if not products:
+        return render_template("business-page.html",products = None, public_key=company.public_key, user=current_user)
+    return render_template("business-page.html",products = products, public_key=company.public_key, user=current_user)
