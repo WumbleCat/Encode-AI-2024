@@ -69,10 +69,17 @@ def save_transaction():
 
 @auth.route('/pay/<int:id>')
 def pay(id):
+    from predict import identify
+
     product = Product.query.filter_by(id=id).first()
     price = product.cost
     company = Company.query.filter_by(id = product.company_id).first()
-    return render_template("pay.html",price = price, public_key = company.public_key)
+    if identify({"Customer ID": "123", "Merchant ID":company.merchant_id,
+                "Merchant Region": "Rural", "Category": "Luxury", "Amount": price}):
+        flash("Payment is fraudulent")
+        return render_template("navbar.html")
+    else:
+        return render_template("pay.html",price = price, public_key = company.public_key)
 @auth.route('/business')
 @login_required
 def business():
